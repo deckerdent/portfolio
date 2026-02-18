@@ -1,0 +1,9 @@
+{
+  "run": {
+    "command": "nx serve portal",
+    "startTime": "2026-02-14T21:45:51.007Z",
+    "endTime": "2026-02-14T21:45:53.349Z",
+    "inner": false
+  },
+  "tasks": []
+}

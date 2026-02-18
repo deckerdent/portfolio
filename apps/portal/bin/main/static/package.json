@@ -1,0 +1,30 @@
+{
+  "name": "portal",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:host": "vite --mode host",
+    "build": "vite build",
+    "build:host": "vite build --mode host",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@module-federation/bridge-vue3": "catalog:default",
+    "@module-federation/enhanced": "catalog:default",
+    "@shoelace-style/shoelace": "catalog:default",
+    "axios": "catalog:default",
+    "axios-retry": "catalog:default",
+    "i18next": "catalog:default",
+    "vue": "catalog:default",
+    "vue-router": "catalog:default"
+  },
+  "devDependencies": {
+    "@module-federation/vite": "catalog:default",
+    "@vitejs/plugin-vue": "catalog:default",
+    "typescript": "catalog:default",
+    "vite": "catalog:default",
+    "vite-plugin-ejs": "catalog:default"
+  }
+}

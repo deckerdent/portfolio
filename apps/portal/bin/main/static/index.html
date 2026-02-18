@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Host Application</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    #layout {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #slot\:header {
+      width: 100%;
+      height: 0;
+      min-height: 0;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    #slot\:header:not(:empty) {
+      height: auto;
+    }
+
+    #main-content {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #slot\:sidebar-left {
+      width: 0;
+      min-width: 0;
+      height: 100%;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    #slot\:sidebar-left:not(:empty) {
+      width: auto;
+    }
+
+    #slot\:app {
+      flex: 1;
+      height: 100%;
+      min-width: 0;
+      overflow: auto;
+    }
+
+    #slot\:sidebar-right {
+      width: 0;
+      min-width: 0;
+      height: 100%;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    #slot\:sidebar-right:not(:empty) {
+      width: auto;
+    }
+
+    #slot\:footer {
+      width: 100%;
+      height: 0;
+      min-height: 0;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    #slot\:footer:not(:empty) {
+      height: auto;
+    }
+
+    #slot\:floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 0;
+      height: 0;
+      min-width: 0;
+      min-height: 0;
+      overflow: visible;
+    }
+
+    #slot\:floating-button:not(:empty) {
+      width: auto;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="layout">
+    <header id="slot:header"></header>
+    <div id="main-content">
+      <aside id="slot:sidebar-left"></aside>
+      <main id="slot:app"></main>
+      <aside id="slot:sidebar-right"></aside>
+    </div>
+    <footer id="slot:footer"></footer>
+  </div>
+  <div id="slot:floating-button"></div>
+  <script type="module" src="/src/host/main.ts"></script>
+</body>
+
+</html>

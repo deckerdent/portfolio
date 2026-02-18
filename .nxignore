@@ -1,0 +1,4 @@
+# Exclude build output directories from NX project detection
+apps/portal/bin/
+build/
+.__mf__temp/

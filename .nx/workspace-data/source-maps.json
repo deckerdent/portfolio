@@ -1,0 +1,886 @@
+{
+  "apps/portal/src/main/resources/static/host": {
+    "root": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "apps/portal/src/main/resources/static/host/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.dependsOn": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.options": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.cache": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.inputs": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.outputs": [
+      "apps/portal/src/main/resources/static/host/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.executor": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.options.cwd": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.options.command": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "apps/portal/src/main/resources/static/host/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "apps/portal/src/main/resources/static/host/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.help": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "apps/portal/src/main/resources/static/host/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "apps/portal/src/main/resources/static/host/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "projectType": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.options": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.cache": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.inputs": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.outputs": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.executor": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.options.cwd": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.options.command": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.technologies": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.test.metadata.technologies.0": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.test.metadata.description": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.help": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.help.command": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.test.metadata.help.example": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.continuous": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.syncGenerators": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.executor": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.cwd": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.command": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies.0": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.description": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.command": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.example": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.deprecated": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.syncGenerators": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.buildTarget": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.spa": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.technologies.1": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "metadata.targetGroups": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.TEST (CI)": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.technologies.1": [
+      "apps/portal/src/main/resources/static/host/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.lint": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.executor": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.options": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.options.script": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata.scriptContent": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata.runCommand": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.executor": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options.script": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.scriptContent": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.runCommand": [
+      "apps/portal/src/main/resources/static/host/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/portal/src/main/resources/static/portal": {
+    "root": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "apps/portal/src/main/resources/static/portal/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "projectType": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.options": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.cache": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.inputs": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.outputs": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.executor": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.options.cwd": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.options.command": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.technologies": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.test.metadata.technologies.0": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.test.metadata.description": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.help": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.help.command": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.test.metadata.help.example": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.continuous": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.syncGenerators": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.executor": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.cwd": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.options.command": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.technologies.0": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.description": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.command": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.help.example": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve.metadata.deprecated": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.syncGenerators": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.buildTarget": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.serve-static.options.spa": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.cache": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.inputs": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.options": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.dependsOn": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.executor": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.options.cwd": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.options.command": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.description": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.technologies.1": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.technologies.2": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.typecheck.metadata.help": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vite/plugin"
+    ],
+    "metadata.targetGroups": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.TEST (CI)": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.test.metadata.technologies.1": [
+      "apps/portal/src/main/resources/static/portal/vite.config.mts",
+      "@nx/vitest"
+    ],
+    "targets.lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.executor": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.options": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.options.script": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata.scriptContent": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata.runCommand": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.executor": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options.script": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.scriptContent": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.runCommand": [
+      "apps/portal/src/main/resources/static/portal/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  }
+}

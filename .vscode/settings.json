@@ -1,0 +1,11 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "gradle init": true,
+        "mv": true,
+        "cp": true,
+        "robocopy": true,
+        "Copy-Item": true
+    },
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "json.schemaDownload.enable": false
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/portal/src/main/resources/static/portal"
+    },
+    {
+      "path": "./apps/portal/src/main/resources/static/host"
+    }
+  ]
+}

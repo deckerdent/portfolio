@@ -1,0 +1,10 @@
+[
+  {
+    "displayName": "Portal App",
+    "sourceUrl": "http://localhost:4202",
+    "scope": "portal",
+    "module": "Module",
+    "description": "Main portal application with routing and navigation",
+    "slot": "app"
+  }
+]

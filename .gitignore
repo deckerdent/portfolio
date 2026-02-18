@@ -1,0 +1,77 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Ignore Kotlin plugin data
+.kotlin
+
+# Node.js / pnpm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+dist/
+dist-ssr/
+*.local
+
+# Vite
+.vite/
+**/.vite/
+**/__mf__temp/
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+
+# Java / Spring Boot
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+target/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*~
+
+# Spring Boot
+*.pid
+spring-shell.log
+
+# Test results
+test-output/
+**/test-results/
+**/reports/
+
+# Logs
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Configuration cache
+.cache/
+**/configuration-cache/

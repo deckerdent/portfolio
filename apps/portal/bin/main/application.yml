@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: portal
+
+  security:
+    oauth2:
+      client:
+        registration: {}
+      resourceserver:
+        jwt:
+          enabled: false
+
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/portal}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.reactive.ReactiveManagementWebSecurityAutoConfiguration
+
+  cache:
+    type: none
+
+  webflux:
+    base-path: /
+
+  web:
+    resources:
+      static-locations:
+        - file:./static/
+        - classpath:/static/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      enabled: true
+      show-details: when-authorized
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+    disable-swagger-default-url: true

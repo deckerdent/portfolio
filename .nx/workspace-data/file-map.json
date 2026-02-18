@@ -1,0 +1,500 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.4.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.lib.json",
+          "buildDepsName": "build-deps",
+          "watchDepsName": "watch-deps"
+        }
+      }
+    },
+    {
+      "name": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/vitest",
+      "version": "22.4.2",
+      "options": {
+        "testTargetName": "test",
+        "ciTargetName": "test-ci",
+        "testMode": "watch"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".github/prompts/template.prompt.md",
+        "hash": "5595815737006124238"
+      },
+      {
+        "file": "apps/portal/.gitignore",
+        "hash": "12934475397802093441"
+      },
+      {
+        "file": ".github/prompts/reusable/update-gradle-libs-versions.prompt.md",
+        "hash": "7070547648033455784"
+      },
+      {
+        "file": "gradlew",
+        "hash": "18228996197658660565"
+      },
+      {
+        "file": "apps/portal/src/test/java/com/portfolio/portal/SwaggerUiTest.java",
+        "hash": "2417553533587819215"
+      },
+      {
+        "file": "apps/portal/src/main/java/com/portfolio/portal/PortalApplication.java",
+        "hash": "200592379711119853"
+      },
+      {
+        "file": "apps/portal/src/test/java/com/portfolio/portal/PortalApplicationTests.java",
+        "hash": "5183451110185767030"
+      },
+      {
+        "file": ".github/prompts/reusable/update-pnpm-catalog.prompt.md",
+        "hash": "1822856560827861866"
+      },
+      {
+        "file": "apps/portal/src/main/resources/openapi/api.yml",
+        "hash": "8220147724949927217"
+      },
+      {
+        "file": "apps/portal/src/main/resources/application.yml",
+        "hash": "10081691774893095262"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "4935024265911705695"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "6373478586731832664"
+      },
+      {
+        "file": "apps/portal/.gitattributes",
+        "hash": "2780342778590489628"
+      },
+      {
+        "file": "gradle/libs.versions.toml",
+        "hash": "2502919458125148473"
+      },
+      {
+        "file": "apps/portal/gradle.properties",
+        "hash": "18267192234097764844"
+      },
+      {
+        "file": ".github/prompts/reusable/create-prompt.prompt.md",
+        "hash": "5369666641976405050"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "7264611152694122095"
+      },
+      {
+        "file": ".github/prompts/reusable/init-new-app.prompt.md",
+        "hash": "17772066490790642130"
+      },
+      {
+        "file": "gradlew.bat",
+        "hash": "8232202015247706579"
+      },
+      {
+        "file": ".github/prompts/reusable/verify-dependency-versions.prompt.md",
+        "hash": "5680046055707265926"
+      },
+      {
+        "file": "vitest.workspace.ts",
+        "hash": "8851963806934849101"
+      },
+      {
+        "file": "apps/portal/src/test/java/com/portfolio/portal/controller/HelloControllerTest.java",
+        "hash": "2956800757386866212"
+      },
+      {
+        "file": "apps/portal/src/test/java/com/portfolio/portal/StaticResourcesTest.java",
+        "hash": "8975306339167176408"
+      },
+      {
+        "file": "gradle/wrapper/gradle-wrapper.properties",
+        "hash": "2572908908702849950"
+      },
+      {
+        "file": "diagrams/.$Overview.drawio.bkp",
+        "hash": "3141383351747119812"
+      },
+      {
+        "file": "diagrams/.$Overview.drawio.dtmp",
+        "hash": "4471802318126261302"
+      },
+      {
+        "file": "apps/portal/src/main/resources/manifest.yml",
+        "hash": "2218509169660979749"
+      },
+      {
+        "file": "apps/portal/build.gradle",
+        "hash": "17642773508291727325"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "7118388689452726662"
+      },
+      {
+        "file": "apps/portal/src/main/java/com/portfolio/portal/controller/HelloController.java",
+        "hash": "2500034562562899767"
+      },
+      {
+        "file": "diagrams/Overview.drawio",
+        "hash": "1977316215123836670"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9500394890693978045"
+      },
+      {
+        "file": "apps/portal/src/test/java/com/portfolio/portal/config/TestSecurityConfig.java",
+        "hash": "3471984481464174649"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "14675942747149208222"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "3009167784836919272"
+      },
+      {
+        "file": ".github/prompts/non-reusable/completed/update-readme.prompt.md",
+        "hash": "10216415283139166701"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "2780342778590489628"
+      },
+      {
+        "file": "gradle/wrapper/gradle-wrapper.jar",
+        "hash": "17168250137262685009"
+      },
+      {
+        "file": "package.json",
+        "hash": "10740225072111518998"
+      },
+      {
+        "file": "README.md",
+        "hash": "16900724682357661156"
+      },
+      {
+        "file": ".github/prompts/non-reusable/create-host-application.prompt.md",
+        "hash": "10304833739312413188"
+      },
+      {
+        "file": "gradle.properties",
+        "hash": "18267192234097764844"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "10769213348833324253"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "16789410191862124853"
+      },
+      {
+        "file": "settings.gradle",
+        "hash": "11811019591001945044"
+      }
+    ],
+    "projectFileMap": {
+      "portal": [
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/AboutView-B0MUkl3q.js",
+          "hash": "7775397305614794628"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/App-KYaeg7ew.js",
+          "hash": "6623971290028879054"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/Module-BEQSNVH1.js",
+          "hash": "11236555603699010267"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/hostInit-DunCshMs.js",
+          "hash": "7105804855964772918"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/index-BtvcJ_hi.js",
+          "hash": "4941000735820217958"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/index.cjs-DfOq2DoA.js",
+          "hash": "3078563003497277222"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/portal__loadShare__vue__loadShare__-DO6NhvTa.js",
+          "hash": "8049205293738586227"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/portal__mf_v__runtimeInit__mf_v__-B3Bk3A7E.js",
+          "hash": "12392757674425562322"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/preload-helper-BelkbqnE.js",
+          "hash": "6849374272973404159"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/style-_5mFn5Nf.css",
+          "hash": "2456915192415142485"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/virtualExposes-BkJdl2L_.js",
+          "hash": "9850974451481130930"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/vue-router-xTA_8w7i.js",
+          "hash": "17278518470994830932"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/assets/vue.runtime.esm-bundler-7zwUax05.js",
+          "hash": "14765126489758364498"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/index.html",
+          "hash": "14635654438090587904"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/dist/remoteEntry.js",
+          "hash": "1043553161120634684"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/index.html",
+          "hash": "6888840942873024815"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/package.json",
+          "hash": "11084195520604807708",
+          "deps": [
+            "npm:@module-federation/vite",
+            "npm:@vitejs/plugin-vue",
+            "npm:typescript",
+            "npm:vite@5.4.21",
+            "npm:@module-federation/bridge-vue3",
+            "npm:@module-federation/enhanced",
+            "npm:@shoelace-style/shoelace",
+            "npm:axios",
+            "npm:axios-retry",
+            "npm:i18next",
+            "npm:vue",
+            "npm:vue-router"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/Module.ts",
+          "hash": "15984012453785476357",
+          "deps": [
+            "npm:vue-router",
+            "npm:@module-federation/bridge-vue3"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/app/App.spec.ts",
+          "hash": "3842581855580133201",
+          "deps": [
+            "npm:vitest",
+            "npm:@vue/test-utils"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/app/App.vue",
+          "hash": "12627060373783293847",
+          "deps": [
+            "npm:vue-router"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/app/NxWelcome.vue",
+          "hash": "12547766796452219714"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/main.ts",
+          "hash": "15432849346608162471",
+          "deps": [
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/router/index.ts",
+          "hash": "11217658424698460744",
+          "deps": [
+            "npm:vue-router"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/styles.css",
+          "hash": "16665837875495932307"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/views/AboutView.vue",
+          "hash": "16824834101219002222"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/views/HomeView.vue",
+          "hash": "9367130786167794242"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/src/vue-shims.d.ts",
+          "hash": "1350740973621485859",
+          "deps": [
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/test.html",
+          "hash": "8637150647686007678"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/tsconfig.app.json",
+          "hash": "16300431848376454709"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/tsconfig.json",
+          "hash": "6769840671694798138"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/tsconfig.spec.json",
+          "hash": "8567084487362943702"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/portal/vite.config.mts",
+          "hash": "11307701126587069944",
+          "deps": [
+            "npm:vite@5.4.21",
+            "npm:@vitejs/plugin-vue",
+            "npm:@module-federation/vite"
+          ]
+        }
+      ],
+      "host": [
+        {
+          "file": "apps/portal/src/main/resources/static/host/.babelrc",
+          "hash": "17888961584994350617"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/.swcrc",
+          "hash": "9921579498929141427"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/eslint.config.mjs",
+          "hash": "11144178406843780908"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/index.html",
+          "hash": "251829274529599018"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/package.json",
+          "hash": "16047978473111763706",
+          "deps": [
+            "npm:@module-federation/bridge-vue3",
+            "npm:@module-federation/enhanced",
+            "npm:@module-federation/vite"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/app/app.element.css",
+          "hash": "2014757848005459412"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/app/app.element.spec.ts",
+          "hash": "17690565115522426256"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/app/app.element.ts",
+          "hash": "16028036896046821941"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/assets/apps.json",
+          "hash": "7570455453681196264"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/main.ts",
+          "hash": "3356322965261505597",
+          "deps": [
+            "npm:@module-federation/enhanced"
+          ]
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/models/MicroFrontendApp.ts",
+          "hash": "418529062335568410"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/services/MicroFrontendAppFactory.ts",
+          "hash": "8255635837457743583"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/src/styles.css",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/tsconfig.app.json",
+          "hash": "10650582546826822117"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/tsconfig.json",
+          "hash": "6769840671694798138"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/tsconfig.spec.json",
+          "hash": "9327273488853872892"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/tsconfig.tsbuildinfo",
+          "hash": "9165916567911027470"
+        },
+        {
+          "file": "apps/portal/src/main/resources/static/host/vite.config.mts",
+          "hash": "11651998888874140092",
+          "deps": [
+            "npm:vite",
+            "npm:@module-federation/vite"
+          ]
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "1392304674417422004"
+}
