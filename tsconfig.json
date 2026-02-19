@@ -4,10 +4,7 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/portal/src/main/resources/static/portal"
-    },
-    {
-      "path": "./apps/portal/src/main/resources/static/host"
+      "path": "./apps/portal/src/main/resources/static"
     }
   ]
 }
