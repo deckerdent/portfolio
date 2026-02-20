@@ -16,6 +16,12 @@ export default defineConfig(({ mode, command }) => ({
       'Access-Control-Allow-Origin': '*',
     },
     origin: 'http://localhost:4202',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+    },
   },
   preview: {
     port: 4300,

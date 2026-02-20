@@ -1,10 +1,12 @@
 import { defineCustomElement, h } from 'vue';
 
+const ELEMENT_NAME = 'hello-component';
+
 const HelloComponent = defineCustomElement({
-    render() {
-        return h('div', { class: 'hello-component' }, 'hello from component');
-    },
-    styles: [`
+  render() {
+    return h('div', { class: 'hello-component' }, 'hello from component');
+  },
+  styles: [`
     .hello-component {
       padding: 1rem;
       color: #fff;
@@ -18,5 +20,13 @@ const HelloComponent = defineCustomElement({
     }
   `]
 });
+
+export function mount(container: HTMLElement): void {
+  if (!customElements.get(ELEMENT_NAME)) {
+    customElements.define(ELEMENT_NAME, HelloComponent);
+  }
+  const element = document.createElement(ELEMENT_NAME);
+  container.appendChild(element);
+}
 
 export default HelloComponent;

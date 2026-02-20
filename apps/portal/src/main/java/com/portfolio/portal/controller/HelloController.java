@@ -1,6 +1,6 @@
 package com.portfolio.portal.controller;
 
-import com.portfolio.portal.api.ApiApi;
+import com.portfolio.portal.api.HelloApi;
 import com.portfolio.portal.model.HelloResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 @RestController
-public class HelloController implements ApiApi {
+public class HelloController implements HelloApi {
 
     @Override
     public Mono<ResponseEntity<HelloResponse>> getHello(ServerWebExchange exchange) {
