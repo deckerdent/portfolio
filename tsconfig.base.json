@@ -22,6 +22,20 @@
     "target": "es2022",
     "customConditions": [
       "portfolio"
-    ]
+    ],
+    "paths": {
+      "@portfolio/core/writer": [
+        "./libs/browser/core/src/store/PortalStore.ts"
+      ],
+      "@portfolio/core": [
+        "./libs/browser/core/src/index.ts"
+      ],
+      "@portfolio/host": [
+        "./libs/browser/host/src/index.ts"
+      ],
+      "@portfolio/app": [
+        "./libs/browser/app/src/index.ts"
+      ]
+    }
   }
 }

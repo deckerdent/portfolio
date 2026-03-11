@@ -1,4 +1,5 @@
 import { defineCustomElement, h } from 'vue';
+import type { ModuleLifecycle } from '@portfolio/core';
 
 const ELEMENT_NAME = 'hello-component';
 
@@ -21,12 +22,19 @@ const HelloComponent = defineCustomElement({
   `]
 });
 
-export function mount(container: HTMLElement): void {
+let _element: HTMLElement | null = null;
+
+export const mount: ModuleLifecycle['mount'] = (container, _basename) => {
   if (!customElements.get(ELEMENT_NAME)) {
     customElements.define(ELEMENT_NAME, HelloComponent);
   }
-  const element = document.createElement(ELEMENT_NAME);
-  container.appendChild(element);
-}
+  _element = document.createElement(ELEMENT_NAME);
+  container.appendChild(_element);
+};
+
+export const unmount: NonNullable<ModuleLifecycle['unmount']> = () => {
+  _element?.remove();
+  _element = null;
+};
 
 export default HelloComponent;

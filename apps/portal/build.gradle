@@ -64,6 +64,10 @@ dependencies {
     
     // Database
     runtimeOnly 'org.postgresql:postgresql:42.7.3'
+
+    // Flyway migrations
+    implementation 'org.flywaydb:flyway-core'
+    runtimeOnly 'org.flywaydb:flyway-database-postgresql'
     
     // H2 for testing
     testRuntimeOnly 'com.h2database:h2'
@@ -154,6 +158,7 @@ task buildFrontend(type: Exec) {
     
     // Add inputs/outputs for up-to-date checking
     inputs.dir(file("${frontendDir}/src"))
+    inputs.dir(file("${frontendDir}/public"))
     inputs.file("${frontendDir}/package.json")
     inputs.file("${frontendDir}/vite.config.mts")
     outputs.dir(frontendDistDir)
@@ -170,24 +175,14 @@ clean.dependsOn cleanFrontend
 
 processResources {
     dependsOn buildFrontend
-    
-    // Set duplicate handling strategy
+
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    
-    // Copy dist contents to static/ in the resources output
+
+    // Exclude the entire frontend source tree — only dist is bundled
+    exclude 'static/**'
+
+    // Copy only the built dist contents into static/ in the JAR
     from(frontendDistDir) {
         into 'static'
     }
-    
-    // Exclude the source frontend files from the JAR
-    exclude 'static/src/**'
-    exclude 'static/dist/**'
-    exclude 'static/host/**'
-    exclude 'static/portal/**'
-    exclude 'static/node_modules/**'
-    exclude 'static/package.json'
-    exclude 'static/tsconfig*.json'
-    exclude 'static/vite.config.mts'
-    exclude 'static/index.html'
-    exclude 'static/.*'
 }

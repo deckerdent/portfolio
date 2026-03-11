@@ -1,116 +1,64 @@
-# Enlist — Micro-Frontend Self-Contained Systems
+# Portfolio — Micro-Frontend Self-Contained Systems
 
-This is a public companion to a larger private monorepo. It focuses on the `portal` service as a reference implementation of the architectural patterns used across the full project, with more detailed documentation and commentary than the private repository.
+## Intro
 
----
-
-## Architecture
+## Basics
 
 ### Self-Contained Systems (SCS)
 
-A Self-Contained System is an autonomous, independently deployable service that owns its full vertical slice — UI, business logic, and data. Systems communicate only through well-defined interfaces (APIs or events) and avoid shared databases or tight runtime dependencies. The goal is to allow teams to develop, deploy, and scale each system independently.
+SCS means each system owns its full vertical slice, including UI, backend logic, and data. Each system is independently deployable and should communicate with other systems only through explicit interfaces.
 
-### Micro-Frontends
+### Microfrontends
 
-Micro-frontends extend the SCS principle to the UI layer. Rather than a single monolithic frontend consuming multiple backend APIs, each system owns and serves its own frontend. This keeps the vertical slice intact: the team responsible for a system owns everything from the database to the pixels on screen.
-
-### Frontend Served from Within the Backend
-
-In this project, each system's frontend is **bundled directly into the backend JAR** and served as static resources by the Spring Boot application. This eliminates the need for separate frontend hosting or a CDN, simplifies deployment to a single artifact, and ensures the frontend and backend of a system are always versioned and deployed together.
-
-At runtime, the JAR serves the built frontend from its classpath. An optional local `static/` directory next to the JAR can override individual files without rebuilding — useful for environment-specific configuration.
-
-### Monorepo
-
-The monorepo structure is **not an architectural requirement** for SCS. Each app in `apps/` is a fully self-contained Spring Boot service that could live in its own repository. The monorepo is used here — and in the larger private repo — purely for developer ergonomics: shared tooling, easier cross-module navigation, and a single place to observe all modules together.
+Microfrontends apply SCS principles to the browser layer. Instead of one large frontend, UI features are delivered as separate modules owned by separate systems and composed at runtime.
 
 ### Module Federation
 
-Frontends use [Vite Module Federation](https://module-federation.io/) to expose micro-apps as federated modules. Each app in `src/apps/` is independently loadable at runtime, allowing the host to compose the UI from multiple autonomous units without compile-time coupling.
+Module Federation is used to load frontend modules from independent builds at runtime. In this project, the `portal` host registers and mounts remote modules without compile-time coupling to their internal implementation.
 
----
+### Web Awesome
 
-## Project Structure
+Web Awesome is used as a web-component-based UI building approach that aligns with framework-agnostic frontend composition. It supports reusable, standards-based UI elements that can be consumed across modules.
 
-```
-apps/
-  portal/                        # Reference SCS implementation
-    build.gradle                 # Builds frontend + backend, bundles dist into JAR
-    static/
-    src/
-      main/
-        java/                    # Spring Boot application (WebFlux, Java 17)
-        resources/
-          application.yml        # Spring Boot configuration
-          static/                # Vite + Vue 3 frontend project
-            src/
-              apps/
-                default/         # DefaultApp — federated micro-app
-                test/            # TestApp — federated micro-app
-              components/
-                HelloComponent.ts  # Shared web component (custom element)
-              host/              # Host application — bootstraps Module Federation
-            vite.config.mts      # Vite build config with Module Federation
-            package.json
-      test/
-        java/                    # Spring Boot integration tests
-```
+### Common Technologies
 
----
+- Spring
+- Gradle
+- Vue
 
-## Getting Started
+## Architecture
 
-### Prerequisites
+Shared browser libraries in `libs/browser/core` and `libs/browser/host` provide runtime contracts and reusable host logic so each app does not reimplement cross-cutting behavior. This includes common model types, host orchestration utilities, and shared integration patterns for remotes.
 
-- Java 17
-- Node.js 20+
-- [pnpm](https://pnpm.io/) 9+
+State can be shared across remotes through these shared runtime modules (for example, a shared store abstraction exposed by host/core libraries). This allows multiple remotes to react to common navigation or host state without direct remote-to-remote coupling.
 
-### Full Build
+At the repository level, `apps/` contains self-contained deployable systems (for example `portal` and `cv`), while `libs/` contains reusable shared modules. Each app contains backend and frontend code, with frontend assets bundled into the backend artifact at build time.
 
-Builds the java app and the contained frontend project together and packages it into the Spring Boot JAR:
+In this repository, an **app** is a federated feature module with lifecycle entry points (typically `mount(container, basename)` and optional `unmount()`) that can be loaded by a host. A **component** is a reusable UI building block (for example in `src/components/`) used by apps, but not independently routed or deployed.
 
-```bash
-./gradlew build
-```
+## Implementation
 
-### Skip Frontend Build
+Frontend app modules are organized under each service frontend source tree (for example under `src/apps/`), where each module encapsulates its own rendering and lifecycle integration for host-driven mounting. The host resolves route/slot activation and mounts the selected app into a target container.
 
-Useful when iterating on the backend only:
+Frontend components are organized separately (for example under `src/components/`) and are intended for reuse by multiple app modules. Components focus on presentation and interaction primitives, while app modules own feature composition and lifecycle behavior.
 
-```bash
-./gradlew build -PskipFrontend
-```
+Backend and host APIs are intentionally small and composition-focused. In `portal`, host endpoints provide initialization/configuration data and source/module metadata used to register remotes, while each app service exposes its own domain APIs behind `/api`.
 
-### Run the Application
+## Planned Features
 
-```bash
-./gradlew :apps:portal:bootRun
-```
+The platform is planned to be extended with a scaffolder to create new projects and modules with less manual setup. It is also planned to introduce dedicated services and platform capabilities for:
 
-The application is available at [http://localhost:8080](http://localhost:8080).
+- User management
+- Dynamic registration of new services/modules
+- Router configuration management
+- Authentication and authorization enhancements
+- Internationalization
+- Additional platform-oriented extensions as requirements evolve
 
-### Frontend Dev Server
+## Known Issues
 
-For frontend development with hot module replacement:
+This project is unfinished and currently does not include complete production-grade security implementation. OAuth-based security is planned for future iterations.
 
-```bash
-# From the repo root
-pnpm --filter portal dev
+Future projects in this ecosystem may also adopt more advanced patterns and capabilities such as CQRS, caching, OpenFGA-based authorization, i18n, and similar improvements.
 
-# Or directly
-cd apps/portal/src/main/resources/static
-pnpm dev
-```
-
-The Vite dev server runs on [http://localhost:4202](http://localhost:4202).
-
----
-
-## Runtime File Overrides
-
-Place files in a `static/` directory next to the running JAR to override resources served by the application without rebuilding. The application checks this directory first before falling back to the bundled classpath resources. This is intended for environment-specific configuration files, not for general development.
-
-# Known Issues
-
-<tbd>
+There are currently no views that allow creating new records through forms.

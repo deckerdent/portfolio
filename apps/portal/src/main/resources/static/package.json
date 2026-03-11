@@ -13,10 +13,12 @@
   "dependencies": {
     "@module-federation/bridge-vue3": "catalog:default",
     "@module-federation/enhanced": "catalog:default",
-    "@shoelace-style/shoelace": "catalog:default",
+    "@awesome.me/webawesome": "catalog:default",
     "axios": "catalog:default",
     "axios-retry": "catalog:default",
     "i18next": "catalog:default",
+    "navigo": "catalog:default",
+    "rxjs": "catalog:default",
     "vue": "catalog:default",
     "vue-router": "catalog:default"
   },

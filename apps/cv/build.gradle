@@ -1,0 +1,191 @@
+/*
+ * CV application build configuration
+ */
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.6'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'org.openapi.generator' version '7.6.0'
+}
+
+group = 'com.portfolio'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        exclude group: 'org.apache.tomcat'
+    }
+}
+
+dependencies {
+    // Spring Boot starters
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+    }
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+    }
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-resource-server') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+    }
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation('org.springframework.boot:spring-boot-starter-actuator') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+    }
+    implementation('org.springframework.boot:spring-boot-starter-data-redis') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+    }
+    implementation('org.springframework.boot:spring-boot-starter-websocket') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+
+    // Ensure Netty is used for reactive
+    implementation 'io.projectreactor.netty:reactor-netty'
+
+    // Spring messaging
+    implementation 'org.springframework:spring-messaging'
+
+    // Database
+    runtimeOnly 'org.postgresql:postgresql:42.7.3'
+
+    // Flyway migrations
+    implementation 'org.flywaydb:flyway-core'
+    runtimeOnly 'org.flywaydb:flyway-database-postgresql'
+
+    // H2 for testing
+    testRuntimeOnly 'com.h2database:h2'
+
+    // OpenAPI documentation
+    implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.6.0'
+
+    // OpenAPI Jackson Nullable (required by generated code)
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+
+    // Observability
+    implementation 'io.github.resilience4j:resilience4j-reactor:2.2.0'
+
+    // JSON
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+
+    // MapStruct
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+    // Ensures Lombok runs before MapStruct so generated getters/setters are visible
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
+    testImplementation 'org.testcontainers:testcontainers:1.20.1'
+    testImplementation 'org.testcontainers:junit-jupiter:1.20.1'
+    testImplementation 'org.testcontainers:postgresql:1.20.1'
+    testImplementation 'io.projectreactor:reactor-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+openApiGenerate {
+    generatorName = 'spring'
+    inputSpec = "$projectDir/src/main/resources/openapi/api.yml".toString()
+    outputDir = "$buildDir/generated/openapi".toString()
+    apiPackage = 'com.portfolio.cv.api'
+    modelPackage = 'com.portfolio.cv.model'
+    configOptions = [
+        interfaceOnly: 'true',
+        useSpringBoot3: 'true',
+        reactive: 'true',
+        skipDefaultInterface: 'true'
+    ]
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "$buildDir/generated/openapi/src/main/java"
+        }
+    }
+}
+
+compileJava.dependsOn tasks.openApiGenerate
+
+// Frontend build tasks
+def frontendDir = file('src/main/resources/static')
+def frontendDistDir = file('src/main/resources/static/dist')
+
+task buildFrontend(type: Exec) {
+    description = 'Build Vue frontend with pnpm'
+    group = 'build'
+
+    workingDir frontendDir
+
+    // Handle Windows vs Unix pnpm command
+    if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+        commandLine 'cmd', '/c', 'pnpm', 'build'
+    } else {
+        commandLine 'pnpm', 'build'
+    }
+
+    // Make build fail if frontend build fails
+    ignoreExitValue = false
+
+    // Only run if not skipped
+    enabled = !project.hasProperty('skipFrontend')
+
+    // Add inputs/outputs for up-to-date checking
+    inputs.dir(file("${frontendDir}/src"))
+    inputs.dir(file("${frontendDir}/public"))
+    inputs.file("${frontendDir}/package.json")
+    inputs.file("${frontendDir}/vite.config.mts")
+    outputs.dir(frontendDistDir)
+}
+
+task cleanFrontend(type: Delete) {
+    description = 'Clean Vue frontend build artifacts'
+    group = 'build'
+
+    delete frontendDistDir
+}
+
+clean.dependsOn cleanFrontend
+
+processResources {
+    dependsOn buildFrontend
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    // Exclude the entire frontend source tree — only dist is bundled
+    exclude 'static/**'
+
+    // Copy only the built dist contents into static/ in the JAR
+    from(frontendDistDir) {
+        into 'static'
+    }
+}

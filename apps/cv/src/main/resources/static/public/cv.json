@@ -1,0 +1,256 @@
+{
+    "generalInfo": {
+        "firstName": "Marcel",
+        "lastName": "Decker",
+        "maritalStatus": "MARRIED",
+        "numberOfChildren": 2,
+        "dateOfBirth": "1991-01-27",
+        "placeOfBirth": "Heidelberg, Germany",
+        "nationality": "German",
+        "imageUrl": "/image.jpeg",
+        "summary": ""
+    },
+    "experiences": [
+        {
+            "title": "Senior Specialist Digitalization",
+            "companyName": "BASF Digital Solutions GmbH",
+            "startDate": "2022-01-01",
+            "endDate": null,
+            "location": "Ludwigshafen, Germany",
+            "description": ""
+        },
+        {
+            "title": "Team Specialist",
+            "companyName": "BASF Business Services GmbH",
+            "startDate": "2021-12-01",
+            "endDate": "2021-12-31",
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "PO / Developer",
+            "companyName": "BASF Business Services GmbH",
+            "startDate": "2019-03-01",
+            "endDate": "2021-11-30",
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "Working Student - Web Development",
+            "companyName": "BASF Business Services GmbH",
+            "startDate": "2018-12-01",
+            "endDate": "2019-02-28",
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "Teamlead",
+            "companyName": "I.K. Hofmann GmbH",
+            "startDate": "2017-02-01",
+            "endDate": "2017-04-30",
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "Security Staff",
+            "companyName": "Eitner Security GmbH",
+            "startDate": "2016-11-01",
+            "endDate": "2017-01-31",
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "Truck Planner",
+            "companyName": "Alba SCM GmbH",
+            "startDate": "2016-03-01",
+            "endDate": "2017-09-30",
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "Warehouse Planner",
+            "companyName": "LGI GmbH",
+            "startDate": "2014-01-01",
+            "endDate": "2016-02-28",
+            "location": "Walldorf, Germany",
+            "description": ""
+        },
+        {
+            "title": "Apprentice - Warehouse Logistics",
+            "companyName": "LGI GmbH",
+            "startDate": "2011-09-01",
+            "endDate": "2014-01-31",
+            "location": "Walldorf, Germany",
+            "description": ""
+        },
+        {
+            "title": "Warehouse Worker",
+            "companyName": "LGI GmbH",
+            "startDate": "2011-01-01",
+            "endDate": "2011-08-31",
+            "location": "Walldorf, Germany",
+            "description": ""
+        },
+        {
+            "title": "Production Worker",
+            "companyName": "BASF SE",
+            "startDate": "2010-07-01",
+            "endDate": "2010-10-31",
+            "location": "Ludwigshafen, Germany",
+            "description": ""
+        }
+    ],
+    "education": [
+        {
+            "title": "B.Sc. Business Informatics",
+            "schoolName": "HTW Berlin",
+            "startDate": "2017-10-01",
+            "endDate": null,
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "Bachelor Professional of Business",
+            "schoolName": "Autodidactic",
+            "startDate": "2015-03-01",
+            "endDate": "2016-12-31",
+            "location": "Berlin, Germany",
+            "description": ""
+        },
+        {
+            "title": "Specialist - Warehouse Logistics",
+            "schoolName": "Friedrich List Business School Mannheim",
+            "startDate": "2011-09-01",
+            "endDate": "2014-01-31",
+            "location": "Mannheim, Germany",
+            "description": ""
+        }
+    ],
+    "skills": [
+        {
+            "title": "TypeScript",
+            "level": 9
+        },
+        {
+            "title": "Java",
+            "level": 8
+        },
+        {
+            "title": "Vue.js",
+            "level": 9
+        },
+        {
+            "title": "Spring Boot",
+            "level": 8
+        },
+        {
+            "title": "Docker",
+            "level": 7
+        },
+        {
+            "title": "PostgreSQL",
+            "level": 7
+        }
+    ],
+    "competences": [
+        {
+            "description": "Micro-frontend architecture"
+        },
+        {
+            "description": "Agile / Scrum"
+        },
+        {
+            "description": "Cloud-native development"
+        },
+        {
+            "description": "Technical mentoring"
+        }
+    ],
+    "languages": [
+        {
+            "name": "German",
+            "level": 10
+        },
+        {
+            "name": "English",
+            "level": 7
+        }
+    ],
+    "hobbies": [
+        {
+            "name": "Photography"
+        },
+        {
+            "name": "Hiking"
+        },
+        {
+            "name": "Open Source"
+        }
+    ],
+    "references": [
+        {
+            "firstName": "Anna",
+            "lastName": "Müller",
+            "description": "Marcel consistently delivered high-quality features and was a reliable team member throughout our joint project. His ability to translate complex requirements into clean, maintainable code is outstanding.",
+            "relation": "MANAGER"
+        },
+        {
+            "firstName": "Jonas",
+            "lastName": "Weber",
+            "description": "A highly motivated developer with a strong sense of ownership and excellent communication skills. Marcel always brought pragmatic solutions to the table and was a pleasure to work with.",
+            "relation": "COWORKER"
+        },
+        {
+            "firstName": "Laura",
+            "lastName": "Schneider",
+            "description": "Marcel's architectural decisions significantly improved our system's scalability and reduced technical debt. He is a natural mentor and elevates the entire team around him.",
+            "relation": "MANAGER"
+        },
+        {
+            "firstName": "Tobias",
+            "lastName": "Hoffmann",
+            "description": "Working alongside Marcel was a great experience. He combines deep technical expertise with a collaborative mindset and always keeps the bigger picture in mind.",
+            "relation": "COWORKER"
+        },
+        {
+            "firstName": "Sandra",
+            "lastName": "Braun",
+            "description": "Marcel showed exceptional initiative and delivered results well beyond what was expected. I would highly recommend him for any senior engineering or technical leadership role.",
+            "relation": null
+        }
+    ],
+    "certificates": [
+        {
+            "title": "AWS Certified Developer – Associate",
+            "issuingOrganization": "Amazon Web Services",
+            "startDate": "2023-04-01",
+            "endDate": "2026-04-01",
+            "location": null,
+            "description": "Validates proficiency in developing, deploying, and debugging cloud-based applications using AWS services."
+        },
+        {
+            "title": "Professional Scrum Master I (PSM I)",
+            "issuingOrganization": "Scrum.org",
+            "startDate": "2021-09-15",
+            "endDate": null,
+            "location": null,
+            "description": "Demonstrates a fundamental level of Scrum mastery, including Scrum theory, practices, and the Scrum framework."
+        },
+        {
+            "title": "Oracle Certified Professional: Java SE 11 Developer",
+            "issuingOrganization": "Oracle",
+            "startDate": "2022-06-01",
+            "endDate": "2025-06-01",
+            "location": null,
+            "description": "Certifies advanced knowledge of Java SE 11 programming language features, APIs, and best practices."
+        },
+        {
+            "title": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+            "issuingOrganization": "Microsoft",
+            "startDate": "2023-11-01",
+            "endDate": null,
+            "location": null,
+            "description": "Foundational certification covering core Azure services, cloud concepts, and Microsoft Azure pricing and support."
+        }
+    ]
+}

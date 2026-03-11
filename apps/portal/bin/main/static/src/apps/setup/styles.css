@@ -1,0 +1,31 @@
+.setup-welcome-heading {
+    font-size: var(--wa-font-size-2xl);
+    font-weight: var(--wa-font-weight-bold);
+    color: var(--wa-color-text-normal);
+    margin: 0 0 var(--wa-space-xs);
+    line-height: 1.1;
+}
+
+.setup-welcome-text {
+    font-size: var(--wa-font-size-m);
+    color: var(--wa-color-text-quiet);
+    margin: 0;
+    max-width: 56ch;
+    line-height: var(--wa-line-height-normal);
+}
+
+.setup-welcome {
+    margin-block-end: var(--wa-space-xl);
+}
+
+.setup-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wa-space-m);
+}
+
+.setup-view {
+    padding: var(--wa-space-2xl) var(--wa-space-xl);
+    max-width: 640px;
+    margin-inline: auto;
+}

@@ -13,8 +13,12 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @AutoConfigureWebTestClient
 @Import(TestSecurityConfig.class)
 @TestPropertySource(properties = {
-        "spring.jpa.hibernate.ddl-auto=none",
-        "spring.datasource.url=jdbc:h2:mem:testdb"
+        "spring.jpa.hibernate.ddl-auto=create-drop",
+        "spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1",
+        "spring.datasource.driver-class-name=org.h2.Driver",
+        "spring.datasource.username=sa",
+        "spring.datasource.password=",
+        "spring.flyway.enabled=false"
 })
 class HelloControllerTest {
 

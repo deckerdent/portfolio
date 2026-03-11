@@ -1,0 +1,20 @@
+[
+    {
+        "displayName": "Header",
+        "entry": "",
+        "scope": "portal",
+        "module": "PortalHeader",
+        "description": "",
+        "slot": "header",
+        "activationUrl": "/"
+    },
+    {
+        "displayName": "Portal Setup",
+        "entry": "",
+        "scope": "portal",
+        "module": "SetupApp",
+        "description": "",
+        "slot": "app",
+        "activationUrl": "/"
+    }
+]

@@ -23,6 +23,112 @@ paths:
               schema:
                 $ref: "#/components/schemas/HelloResponse"
 
+  /host:
+    get:
+      operationId: getHost
+      summary: Get the resolved host configuration
+      tags:
+        - Host
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HostResponse"
+
+  /host/initialized:
+    get:
+      operationId: isHostInitialized
+      summary: Check whether the minimum required host configuration is present
+      tags:
+        - Host
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InitializedResponse"
+
+  /host/config:
+    get:
+      operationId: getHostConfig
+      summary: List all stored host configuration properties
+      tags:
+        - Host
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ConfigPropsDto"
+    post:
+      operationId: upsertHostConfig
+      summary: Create or update a host configuration property
+      tags:
+        - Host
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConfigPropRequest"
+      responses:
+        "201":
+          description: Created or updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConfigPropsDto"
+
+  /host/config/{key}:
+    put:
+      operationId: updateHostConfigByKey
+      summary: Update the value of an existing configuration property
+      tags:
+        - Host
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConfigPropRequest"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConfigPropsDto"
+        "404":
+          description: Property not found
+    delete:
+      operationId: deleteHostConfigByKey
+      summary: Delete a host configuration property by key
+      tags:
+        - Host
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Property not found
+
 components:
   schemas:
     HelloResponse:
@@ -34,3 +140,80 @@ components:
           type: string
           description: Hello world message
           example: "Hello World"
+
+    ConfigPropsDto:
+      type: object
+      required:
+        - id
+        - key
+        - value
+      properties:
+        id:
+          type: string
+          format: uuid
+        key:
+          type: string
+          description: Unique configuration key
+          example: "basePath"
+        value:
+          type: string
+          description: Configuration value
+          example: "/"
+
+    ConfigPropRequest:
+      type: object
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+          description: Configuration key
+          example: "title"
+        value:
+          type: string
+          description: Configuration value
+          example: "My Portfolio"
+
+    HostResponse:
+      type: object
+      required:
+        - title
+        - basePath
+        - sourceUrls
+        - appsUrl
+        - configProps
+      properties:
+        title:
+          type: string
+          description: Human-readable host title
+          example: "My Portfolio"
+        basePath:
+          type: string
+          description: Router base path
+          example: "/"
+        sourceUrls:
+          type: array
+          description: URLs of remote entry manifests
+          items:
+            type: string
+          example: ["/sources.json"]
+        appsUrl:
+          type: string
+          description: URL of the apps configuration
+          example: "/apps.json"
+        configProps:
+          type: object
+          description: Raw key-value map of all stored configuration properties
+          additionalProperties:
+            type: string
+
+    InitializedResponse:
+      type: object
+      required:
+        - initialized
+      properties:
+        initialized:
+          type: boolean
+          description: True when the minimum required props (title, basePath) are present and non-blank
+          example: false

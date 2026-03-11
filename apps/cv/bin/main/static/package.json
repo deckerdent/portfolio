@@ -1,0 +1,30 @@
+{
+    "name": "cv",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@module-federation/bridge-vue3": "catalog:default",
+        "@module-federation/enhanced": "catalog:default",
+        "@awesome.me/webawesome": "catalog:default",
+        "axios": "catalog:default",
+        "axios-retry": "catalog:default",
+        "i18next": "catalog:default",
+        "navigo": "catalog:default",
+        "rxjs": "catalog:default",
+        "vue": "catalog:default",
+        "vue-router": "catalog:default"
+    },
+    "devDependencies": {
+        "@module-federation/vite": "catalog:default",
+        "@vitejs/plugin-vue": "catalog:default",
+        "typescript": "catalog:default",
+        "vite": "catalog:default",
+        "vite-plugin-ejs": "catalog:default"
+    }
+}

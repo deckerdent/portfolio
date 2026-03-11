@@ -1,37 +1,29 @@
-import { createApp } from 'vue';
+import { createApp, type App } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import App from './app/App.vue';
+import type { ModuleLifecycle } from '@portfolio/core';
+import AppComponent from './app/App.vue';
 import HomeView from './views/HomeView.vue';
 import AboutView from './views/AboutView.vue';
 
-// Create router factory function
+let _app: App | null = null;
+
 function createRouterInstance(basename: string) {
     return createRouter({
         history: createWebHistory(basename),
         routes: [
-            {
-                path: '/',
-                name: 'home',
-                component: HomeView,
-            },
-            {
-                path: '/about',
-                name: 'about',
-                component: AboutView,
-            },
+            { path: '/', name: 'home', component: HomeView },
+            { path: '/about', name: 'about', component: AboutView },
         ],
     });
 }
 
-// Export mount function for host to call
-export function mount(container: HTMLElement, basename: string = '/') {
-    const router = createRouterInstance(basename);
-    const app = createApp(App);
-    app.use(router);
-    app.mount(container);
+export const mount: ModuleLifecycle['mount'] = (container, basename) => {
+    _app = createApp(AppComponent);
+    _app.use(createRouterInstance(basename));
+    _app.mount(container);
+};
 
-    return {
-        unmount: () => app.unmount(),
-    };
-}
-
+export const unmount: NonNullable<ModuleLifecycle['unmount']> = () => {
+    _app?.unmount();
+    _app = null;
+};

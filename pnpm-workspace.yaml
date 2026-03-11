@@ -1,17 +1,18 @@
 packages:
-  - /apps/*/src/main/resources/static
-  - /apps/*/src/main/resources/static/*
+  - apps/*/src/main/resources/static
+  - apps/*/src/main/resources/static/*
   - libs/js/*
+  - libs/browser/*
   - scaffolders/*
 
 catalogs:
   default:
-    '@module-federation/bridge-vue3': ^0.24.1
-    '@module-federation/enhanced': ^2.0.1
-    '@module-federation/vite': ^1.11.0
-    '@openapitools/openapi-generator-cli': ^2.12.0
-    '@shoelace-style/shoelace': ^2.15.0
-    '@vitejs/plugin-vue': ^6.0.4
+    "@module-federation/bridge-vue3": ^0.24.1
+    "@module-federation/enhanced": ^2.0.1
+    "@module-federation/vite": ^1.11.0
+    "@openapitools/openapi-generator-cli": ^2.12.0
+    "@awesome.me/webawesome": ^3.3.1
+    "@vitejs/plugin-vue": ^6.0.4
     axios: ^1.13.4
     axios-retry: ^4.5.0
     better-docs: ^2.7.3
@@ -19,9 +20,11 @@ catalogs:
     ejs: ^3.1.10
     i18next: ^23.15.1
     jsdoc: ^4.0.4
+    navigo: ^8.11.1
     postcss: ^8.4.41
+    rxjs: ^7.8.0
     typescript: ^5.6.2
-    vite: ^5.4.11
+    vite: ^7.3.1
     vite-plugin-ejs: ^1.7.0
     vue: ^3.5.13
     vue-router: ^4.5.0

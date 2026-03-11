@@ -1,0 +1,1036 @@
+openapi: 3.0.3
+info:
+  title: CV API
+  description: CV service REST API
+  version: 1.0.0
+
+servers:
+  - url: /api
+    description: Local development
+
+tags:
+  - name: GeneralInfo
+  - name: Experience
+  - name: Education
+  - name: Skills
+  - name: Competences
+  - name: Languages
+  - name: Hobbies
+  - name: References
+  - name: Certificates
+
+paths:
+  /cv/general-info:
+    get:
+      summary: Get general CV info
+      operationId: getGeneralInfo
+      tags: [GeneralInfo]
+      responses:
+        "200":
+          description: General info found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeneralInfoResponse"
+        "404":
+          description: No general info exists yet
+    put:
+      summary: Upsert general CV info
+      operationId: upsertGeneralInfo
+      tags: [GeneralInfo]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GeneralInfoRequest"
+      responses:
+        "200":
+          description: General info updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeneralInfoResponse"
+
+  /cv/experiences:
+    get:
+      summary: List all professional experiences
+      operationId: getExperiences
+      tags: [Experience]
+      responses:
+        "200":
+          description: List of experiences
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExperienceResponse"
+    post:
+      summary: Create a new experience
+      operationId: createExperience
+      tags: [Experience]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExperienceRequest"
+      responses:
+        "201":
+          description: Experience created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperienceResponse"
+
+  /cv/experiences/{id}:
+    get:
+      summary: Get experience by ID
+      operationId: getExperienceById
+      tags: [Experience]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Experience found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperienceResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update experience by ID
+      operationId: updateExperience
+      tags: [Experience]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExperienceRequest"
+      responses:
+        "200":
+          description: Experience updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperienceResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete experience by ID
+      operationId: deleteExperience
+      tags: [Experience]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /cv/education:
+    get:
+      summary: List all education entries
+      operationId: getEducation
+      tags: [Education]
+      responses:
+        "200":
+          description: List of education entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EducationResponse"
+    post:
+      summary: Create a new education entry
+      operationId: createEducation
+      tags: [Education]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EducationRequest"
+      responses:
+        "201":
+          description: Education entry created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EducationResponse"
+
+  /cv/education/{id}:
+    get:
+      summary: Get education entry by ID
+      operationId: getEducationById
+      tags: [Education]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Education entry found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EducationResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update education entry by ID
+      operationId: updateEducation
+      tags: [Education]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EducationRequest"
+      responses:
+        "200":
+          description: Education entry updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EducationResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete education entry by ID
+      operationId: deleteEducation
+      tags: [Education]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /cv/skills:
+    get:
+      summary: List all skills
+      operationId: getSkills
+      tags: [Skills]
+      responses:
+        "200":
+          description: List of skills
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SkillResponse"
+    post:
+      summary: Create a new skill
+      operationId: createSkill
+      tags: [Skills]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SkillRequest"
+      responses:
+        "201":
+          description: Skill created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillResponse"
+
+  /cv/skills/{id}:
+    get:
+      summary: Get skill by ID
+      operationId: getSkillById
+      tags: [Skills]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Skill found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update skill by ID
+      operationId: updateSkill
+      tags: [Skills]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SkillRequest"
+      responses:
+        "200":
+          description: Skill updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete skill by ID
+      operationId: deleteSkill
+      tags: [Skills]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /cv/competences:
+    get:
+      summary: List all competences
+      operationId: getCompetences
+      tags: [Competences]
+      responses:
+        "200":
+          description: List of competences
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CompetenceResponse"
+    post:
+      summary: Create a new competence
+      operationId: createCompetence
+      tags: [Competences]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompetenceRequest"
+      responses:
+        "201":
+          description: Competence created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompetenceResponse"
+
+  /cv/competences/{id}:
+    get:
+      summary: Get competence by ID
+      operationId: getCompetenceById
+      tags: [Competences]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Competence found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompetenceResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update competence by ID
+      operationId: updateCompetence
+      tags: [Competences]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompetenceRequest"
+      responses:
+        "200":
+          description: Competence updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompetenceResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete competence by ID
+      operationId: deleteCompetence
+      tags: [Competences]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /cv/languages:
+    get:
+      summary: List all languages
+      operationId: getLanguages
+      tags: [Languages]
+      responses:
+        "200":
+          description: List of languages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LanguageResponse"
+    post:
+      summary: Create a new language
+      operationId: createLanguage
+      tags: [Languages]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LanguageRequest"
+      responses:
+        "201":
+          description: Language created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LanguageResponse"
+
+  /cv/languages/{id}:
+    get:
+      summary: Get language by ID
+      operationId: getLanguageById
+      tags: [Languages]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Language found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LanguageResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update language by ID
+      operationId: updateLanguage
+      tags: [Languages]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LanguageRequest"
+      responses:
+        "200":
+          description: Language updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LanguageResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete language by ID
+      operationId: deleteLanguage
+      tags: [Languages]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /cv/hobbies:
+    get:
+      summary: List all hobbies
+      operationId: getHobbies
+      tags: [Hobbies]
+      responses:
+        "200":
+          description: List of hobbies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HobbyResponse"
+    post:
+      summary: Create a new hobby
+      operationId: createHobby
+      tags: [Hobbies]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HobbyRequest"
+      responses:
+        "201":
+          description: Hobby created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HobbyResponse"
+
+  /cv/hobbies/{id}:
+    get:
+      summary: Get hobby by ID
+      operationId: getHobbyById
+      tags: [Hobbies]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Hobby found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HobbyResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update hobby by ID
+      operationId: updateHobby
+      tags: [Hobbies]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HobbyRequest"
+      responses:
+        "200":
+          description: Hobby updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HobbyResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete hobby by ID
+      operationId: deleteHobby
+      tags: [Hobbies]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /cv/references:
+    get:
+      summary: List all references
+      operationId: getReferences
+      tags: [References]
+      responses:
+        "200":
+          description: List of references
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ReferenceResponse"
+    post:
+      summary: Create a new reference
+      operationId: createReference
+      tags: [References]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReferenceRequest"
+      responses:
+        "201":
+          description: Reference created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReferenceResponse"
+
+  /cv/references/{id}:
+    get:
+      summary: Get reference by ID
+      operationId: getReferenceById
+      tags: [References]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Reference found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReferenceResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update reference by ID
+      operationId: updateReference
+      tags: [References]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReferenceRequest"
+      responses:
+        "200":
+          description: Reference updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReferenceResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete reference by ID
+      operationId: deleteReference
+      tags: [References]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /cv/certificates:
+    get:
+      summary: List all certificates
+      operationId: getCertificates
+      tags: [Certificates]
+      responses:
+        "200":
+          description: List of certificates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CertificateResponse"
+    post:
+      summary: Create a new certificate
+      operationId: createCertificate
+      tags: [Certificates]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CertificateRequest"
+      responses:
+        "201":
+          description: Certificate created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CertificateResponse"
+
+  /cv/certificates/{id}:
+    get:
+      summary: Get certificate by ID
+      operationId: getCertificateById
+      tags: [Certificates]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "200":
+          description: Certificate found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CertificateResponse"
+        "404":
+          description: Not found
+    put:
+      summary: Update certificate by ID
+      operationId: updateCertificate
+      tags: [Certificates]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CertificateRequest"
+      responses:
+        "200":
+          description: Certificate updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CertificateResponse"
+        "404":
+          description: Not found
+    delete:
+      summary: Delete certificate by ID
+      operationId: deleteCertificate
+      tags: [Certificates]
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  schemas:
+    # ── Enums ────────────────────────────────────────────────────────────────
+    MaritalStatus:
+      type: string
+      enum:
+        - SINGLE
+        - MARRIED
+        - DIVORCED
+        - WIDOWED
+        - SEPARATED
+
+    # ── Shared base fields ──────────────────────────────────────────────────
+    BaseResponse:
+      type: object
+      required: [id, createdAt, updatedAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    # ── GeneralInfo ─────────────────────────────────────────────────────────
+    GeneralInfoResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          properties:
+            firstName:
+              type: string
+            lastName:
+              type: string
+            maritalStatus:
+              $ref: "#/components/schemas/MaritalStatus"
+            numberOfChildren:
+              type: integer
+            dateOfBirth:
+              type: string
+              format: date
+            placeOfBirth:
+              type: string
+            nationality:
+              type: string
+            imageUrl:
+              type: string
+            summary:
+              type: string
+
+    GeneralInfoRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        maritalStatus:
+          $ref: "#/components/schemas/MaritalStatus"
+        numberOfChildren:
+          type: integer
+        dateOfBirth:
+          type: string
+          format: date
+        placeOfBirth:
+          type: string
+        nationality:
+          type: string
+        imageUrl:
+          type: string
+        summary:
+          type: string
+
+    # ── Experience ──────────────────────────────────────────────────────────
+    ExperienceResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [title, companyName, startDate]
+          properties:
+            title:
+              type: string
+            companyName:
+              type: string
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+              nullable: true
+            location:
+              type: string
+            description:
+              type: string
+
+    ExperienceRequest:
+      type: object
+      required: [title, companyName, startDate]
+      properties:
+        title:
+          type: string
+        companyName:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+          nullable: true
+        location:
+          type: string
+        description:
+          type: string
+
+    # ── Education ───────────────────────────────────────────────────────────
+    EducationResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [title, schoolName, startDate]
+          properties:
+            title:
+              type: string
+            schoolName:
+              type: string
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+              nullable: true
+            location:
+              type: string
+            description:
+              type: string
+
+    EducationRequest:
+      type: object
+      required: [title, schoolName, startDate]
+      properties:
+        title:
+          type: string
+        schoolName:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+          nullable: true
+        location:
+          type: string
+        description:
+          type: string
+
+    # ── Skill ───────────────────────────────────────────────────────────────
+    SkillResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [title, level]
+          properties:
+            title:
+              type: string
+            level:
+              type: integer
+              minimum: 1
+              maximum: 10
+
+    SkillRequest:
+      type: object
+      required: [title, level]
+      properties:
+        title:
+          type: string
+        level:
+          type: integer
+          minimum: 1
+          maximum: 10
+
+    # ── Competence ──────────────────────────────────────────────────────────
+    CompetenceResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [description]
+          properties:
+            description:
+              type: string
+
+    CompetenceRequest:
+      type: object
+      required: [description]
+      properties:
+        description:
+          type: string
+
+    # ── Language ────────────────────────────────────────────────────────────
+    LanguageResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [name, level]
+          properties:
+            name:
+              type: string
+            level:
+              type: integer
+              minimum: 1
+              maximum: 10
+
+    LanguageRequest:
+      type: object
+      required: [name, level]
+      properties:
+        name:
+          type: string
+        level:
+          type: integer
+          minimum: 1
+          maximum: 10
+
+    # ── Hobby ───────────────────────────────────────────────────────────────
+    HobbyResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [name]
+          properties:
+            name:
+              type: string
+
+    HobbyRequest:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+
+    # ── Reference ───────────────────────────────────────────────────────────
+    ReferenceRelation:
+      type: string
+      enum:
+        - COWORKER
+        - MANAGER
+
+    ReferenceResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [firstName, lastName, description]
+          properties:
+            firstName:
+              type: string
+            lastName:
+              type: string
+            description:
+              type: string
+            relation:
+              $ref: "#/components/schemas/ReferenceRelation"
+              nullable: true
+
+    ReferenceRequest:
+      type: object
+      required: [firstName, lastName, description]
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        description:
+          type: string
+        relation:
+          $ref: "#/components/schemas/ReferenceRelation"
+          nullable: true
+
+    # ── Certificate ─────────────────────────────────────────────────────────
+    CertificateResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+        - type: object
+          required: [title, issuingOrganization, startDate]
+          properties:
+            title:
+              type: string
+            issuingOrganization:
+              type: string
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+              nullable: true
+            location:
+              type: string
+            description:
+              type: string
+
+    CertificateRequest:
+      type: object
+      required: [title, issuingOrganization, startDate]
+      properties:
+        title:
+          type: string
+        issuingOrganization:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+          nullable: true
+        location:
+          type: string
+        description:
+          type: string
