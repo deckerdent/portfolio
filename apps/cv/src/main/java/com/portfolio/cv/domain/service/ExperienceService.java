@@ -49,6 +49,8 @@ public class ExperienceService implements CrudService<ProfessionalExperience> {
             entity.setEndDate(incoming.getEndDate());
             entity.setLocation(incoming.getLocation());
             entity.setDescription(incoming.getDescription());
+            entity.setSkills(incoming.getSkills());
+            entity.setHighlights(incoming.getHighlights());
             return repository.save(entity);
         }).subscribeOn(Schedulers.boundedElastic());
     }

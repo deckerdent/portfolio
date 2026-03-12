@@ -5,6 +5,6 @@
     },
     {
         "name": "cv",
-        "entry": "http://localhost:4203"
+        "entry": "http://localhost:8081"
     }
 ]

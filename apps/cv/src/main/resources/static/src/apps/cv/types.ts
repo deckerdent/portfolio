@@ -19,6 +19,8 @@ export interface ExperienceResponse {
     endDate: string | null;
     location: string | null;
     description: string | null;
+    skills: string[];
+    highlights: string | null;
 }
 
 export interface EducationResponse {

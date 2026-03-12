@@ -1,0 +1,10 @@
+.git
+.gitignore
+.vscode
+.idea
+node_modules
+**/node_modules
+**/build
+**/bin
+.gradle
+pnpm-store

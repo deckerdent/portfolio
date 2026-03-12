@@ -19,6 +19,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @AutoConfigureWebTestClient
 class CvE2ETest {
 
+    private static final String GENERAL_INFO_URI = "/api/cv/general-info";
+    private static final String EXPERIENCES_URI = "/api/cv/experiences";
+
     @Container
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16-alpine")
             .withDatabaseName("cv_e2e")
@@ -35,11 +38,14 @@ class CvE2ETest {
         registry.add("cv.demo-data.enabled", () -> "false");
     }
 
-    @Autowired
-    private WebTestClient webTestClient;
+    private final WebTestClient webTestClient;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    CvE2ETest(WebTestClient webTestClient, JdbcTemplate jdbcTemplate) {
+        this.webTestClient = webTestClient;
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @BeforeEach
     void cleanDatabase() {
@@ -59,17 +65,17 @@ class CvE2ETest {
     }
 
     @Test
-    void generalInfo_returns404_whenMissing() {
+    void generalInfoReturns404WhenMissing() {
         webTestClient.get()
-                .uri("/api/cv/general-info")
+                .uri(GENERAL_INFO_URI)
                 .exchange()
                 .expectStatus().isNotFound();
     }
 
     @Test
-    void upsertGeneralInfo_thenReadBack() {
+    void upsertGeneralInfoThenReadBack() {
         webTestClient.put()
-                .uri("/api/cv/general-info")
+                .uri(GENERAL_INFO_URI)
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue("""
                         {
@@ -86,7 +92,7 @@ class CvE2ETest {
                 .jsonPath("$.lastName").isEqualTo("Mustermann");
 
         webTestClient.get()
-                .uri("/api/cv/general-info")
+                .uri(GENERAL_INFO_URI)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
@@ -97,33 +103,43 @@ class CvE2ETest {
     }
 
     @Test
-    void createExperience_thenListIncludesEntry() {
+    void createExperienceThenListIncludesEntry() {
         webTestClient.post()
-                .uri("/api/cv/experiences")
+                .uri(EXPERIENCES_URI)
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue("""
-                        {
-                          "title": "Senior Developer",
-                          "companyName": "Acme Corp",
-                          "startDate": "2024-01-01",
-                          "location": "Berlin",
-                          "description": "Built modular systems"
-                        }
-                        """)
+                .bodyValue(
+                        """
+                                {
+                                  "title": "Senior Developer",
+                                  "companyName": "Acme Corp",
+                                  "startDate": "2024-01-01",
+                                  "location": "Berlin",
+                                                                                                                "description": "Built modular systems",
+                                                                                                                "skills": ["Java", "Spring Boot", "PostgreSQL"],
+                                                                                                                "highlights": "Reduced deployment incidents by introducing modular boundaries"
+                                }
+                                """)
                 .exchange()
                 .expectStatus().isCreated()
                 .expectBody()
                 .jsonPath("$.id").isNotEmpty()
                 .jsonPath("$.title").isEqualTo("Senior Developer")
-                .jsonPath("$.companyName").isEqualTo("Acme Corp");
+                .jsonPath("$.companyName").isEqualTo("Acme Corp")
+                .jsonPath("$.skills.length()").isEqualTo(3)
+                .jsonPath("$.skills[0]").isEqualTo("Java")
+                .jsonPath("$.highlights").isEqualTo("Reduced deployment incidents by introducing modular boundaries");
 
         webTestClient.get()
-                .uri("/api/cv/experiences")
+                .uri(EXPERIENCES_URI)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
                 .jsonPath("$.length()").isEqualTo(1)
                 .jsonPath("$[0].title").isEqualTo("Senior Developer")
-                .jsonPath("$[0].companyName").isEqualTo("Acme Corp");
+                .jsonPath("$[0].companyName").isEqualTo("Acme Corp")
+                .jsonPath("$[0].skills.length()").isEqualTo(3)
+                .jsonPath("$[0].skills[1]").isEqualTo("Spring Boot")
+                .jsonPath("$[0].highlights")
+                .isEqualTo("Reduced deployment incidents by introducing modular boundaries");
     }
 }

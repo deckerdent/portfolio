@@ -47,6 +47,23 @@
               <div v-if="getDescription(entry)" class="cv-card-body cv-card-footer">
                 {{ getDescription(entry) }}
               </div>
+
+              <div v-if="getSkills(entry).length > 0" class="cv-experience-skills">
+                <wa-badge
+                  v-for="skill in getSkills(entry)"
+                  :key="`${entry.id}-${skill}`"
+                  appearance="outlined"
+                  variant="brand"
+                  pill
+                >
+                  {{ skill }}
+                </wa-badge>
+              </div>
+
+              <div v-if="getHighlights(entry)" class="cv-experience-highlights">
+                <span class="cv-experience-highlights-label">Highlight</span>
+                <span>{{ getHighlights(entry) }}</span>
+              </div>
             </wa-card>
           </div>
 
@@ -83,6 +100,23 @@
               <div v-if="getDescription(entry)" class="cv-card-body cv-card-footer">
                 {{ getDescription(entry) }}
               </div>
+
+              <div v-if="getSkills(entry).length > 0" class="cv-experience-skills">
+                <wa-badge
+                  v-for="skill in getSkills(entry)"
+                  :key="`${entry.id}-${skill}`"
+                  appearance="outlined"
+                  variant="brand"
+                  pill
+                >
+                  {{ skill }}
+                </wa-badge>
+              </div>
+
+              <div v-if="getHighlights(entry)" class="cv-experience-highlights">
+                <span class="cv-experience-highlights-label">Highlight</span>
+                <span>{{ getHighlights(entry) }}</span>
+              </div>
             </wa-card>
           </div>
         </article>
@@ -96,6 +130,7 @@ import { computed, inject, onMounted, ref } from 'vue';
 import type { AxiosInstance } from 'axios';
 import type { CertificateResponse, EducationResponse, ExperienceResponse } from '../types';
 import type { NormalizedTimelineEntry } from '../utils/timeline';
+import { getExperienceHighlight, getExperienceSkills } from '../utils/experienceDisplay';
 import { buildTimelineRows } from '../utils/timeline';
 import '@awesome.me/webawesome/dist/styles/webawesome.css';
 import '@awesome.me/webawesome/dist/components/card/card.js';
@@ -153,6 +188,22 @@ const getSubtitle = (entry: NormalizedTimelineEntry) => {
 const getLocation = (entry: NormalizedTimelineEntry) => entry.payload.location;
 
 const getDescription = (entry: NormalizedTimelineEntry) => entry.payload.description;
+
+const getSkills = (entry: NormalizedTimelineEntry) => {
+  if (entry.kind !== 'experience') {
+    return [];
+  }
+
+  return getExperienceSkills((entry.payload as ExperienceResponse).skills);
+};
+
+const getHighlights = (entry: NormalizedTimelineEntry) => {
+  if (entry.kind !== 'experience') {
+    return null;
+  }
+
+  return getExperienceHighlight((entry.payload as ExperienceResponse).highlights);
+};
 
 onMounted(async () => {
   try {

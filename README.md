@@ -2,6 +2,21 @@
 
 ## Intro
 
+This repo is a sample repo for a micro-frontend-based, extensible portal. It uses Self-Contained-Systems approach to slice functionality into "apps" and "components" organized in a mono-repo. It has: 
+
+- shared functionality in libraries
+- a global router to control module loading 
+- local routers per app to control app routing
+- web-component based shared component library and theme to keep the UI consistent
+- dockerized services serving both front- and backend
+- a slot based layout to mount apps and components easily
+
+It does not yet have: 
+
+- authentication/authorization
+- i18n 
+- advanced shared features like notifications, dynamic registring of applications or forms to administrate everything
+
 ## Basics
 
 ### Self-Contained Systems (SCS)
@@ -44,6 +59,43 @@ Frontend components are organized separately (for example under `src/components/
 
 Backend and host APIs are intentionally small and composition-focused. In `portal`, host endpoints provide initialization/configuration data and source/module metadata used to register remotes, while each app service exposes its own domain APIs behind `/api`.
 
+## Testing
+
+### Backend E2E (Testcontainers)
+
+- Run portal backend tests:
+	- `./gradlew :apps:portal:test`
+- Run CV backend tests:
+	- `./gradlew :apps:cv:test`
+
+Both backend suites include containerized PostgreSQL integration tests.
+
+### Frontend tests (Vitest)
+
+- Portal frontend tests:
+	- `pnpm --filter portal vitest run`
+- CV frontend tests:
+	- `pnpm --filter cv vitest run`
+
+## Dockerized local stack
+
+The repository includes:
+
+- [docker-compose.yml](docker-compose.yml)
+- [apps/portal/Dockerfile](apps/portal/Dockerfile)
+- [apps/cv/Dockerfile](apps/cv/Dockerfile)
+
+Start the full local stack (PostgreSQL + CV + Portal):
+
+- `docker compose up --build`
+
+Default URLs:
+
+- Portal: `http://localhost:8080`
+- CV: `http://localhost:8081`
+
+PostgreSQL is initialized with `cv` and `portal` databases via [docker/postgres/init-multiple-dbs.sql](docker/postgres/init-multiple-dbs.sql).
+
 ## Planned Features
 
 The platform is planned to be extended with a scaffolder to create new projects and modules with less manual setup. It is also planned to introduce dedicated services and platform capabilities for:
@@ -51,14 +103,18 @@ The platform is planned to be extended with a scaffolder to create new projects 
 - User management
 - Dynamic registration of new services/modules
 - Router configuration management
-- Authentication and authorization enhancements
+- Authentication and authorization
 - Internationalization
 - Additional platform-oriented extensions as requirements evolve
 
 ## Known Issues
 
-This project is unfinished and currently does not include complete production-grade security implementation. OAuth-based security is planned for future iterations.
+- There are currently no forms that allow creating new records through forms. Data only comes from jsons loaded into the database on startup.
 
-Future projects in this ecosystem may also adopt more advanced patterns and capabilities such as CQRS, caching, OpenFGA-based authorization, i18n, and similar improvements.
+- Much of the functionality needs to be relocated to libs. Components are not as re-usable and configurable as they could be. Modules need a way to get their own Module object to us their own configs in their own code. 
 
-There are currently no views that allow creating new records through forms.
+- The way we create axios instances in the modules will break as soon as we want to serve frontends from a cdn as import.meta.url will then not point to the backend domain. Reverse-Proxying frontends should work though to have at least this option for scaling. However, we'll likely implement configs in one or the other way and modules could replace the import.meta with a value from these configs.  
+
+- Also standalone execution for local testing is not available for modules. A mock host may be beneficial.
+
+- We need a good, dynamic approach for CORS so whenever a service gets registered to the host they can communicate and the host can actuall load the frontends. 

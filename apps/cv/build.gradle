@@ -98,9 +98,14 @@ dependencies {
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
-    testImplementation 'org.testcontainers:testcontainers:1.20.1'
-    testImplementation 'org.testcontainers:junit-jupiter:1.20.1'
-    testImplementation 'org.testcontainers:postgresql:1.20.1'
+    testImplementation 'org.testcontainers:testcontainers:1.21.3'
+    testImplementation 'org.testcontainers:junit-jupiter:1.21.3'
+    testImplementation 'org.testcontainers:jdbc:1.21.3'
+    testImplementation 'org.testcontainers:database-commons:1.21.3'
+    testImplementation 'org.testcontainers:postgresql:1.21.3'
+    testImplementation 'com.github.docker-java:docker-java-api:3.6.0'
+    testImplementation 'com.github.docker-java:docker-java-transport:3.6.0'
+    testImplementation 'com.github.docker-java:docker-java-transport-zerodep:3.6.0'
     testImplementation 'io.projectreactor:reactor-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
