@@ -1,22 +1,18 @@
 package com.portfolio.portal;
 
+import com.portfolio.portal.config.PostgresIntegrationTestSupport;
 import com.portfolio.portal.config.TestSecurityConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 @Import(TestSecurityConfig.class)
-@TestPropertySource(properties = {
-        "spring.jpa.hibernate.ddl-auto=none",
-        "spring.datasource.url=jdbc:h2:mem:testdb"
-})
-class SwaggerUiTest {
+class SwaggerUiTest extends PostgresIntegrationTestSupport {
 
     @Autowired
     private WebTestClient webTestClient;

@@ -24,6 +24,23 @@
           <div v-if="exp.description" class="cv-card-body cv-card-footer">
             {{ exp.description }}
           </div>
+
+          <div v-if="getExperienceSkills(exp.skills).length > 0" class="cv-experience-skills">
+            <wa-badge
+              v-for="skill in getExperienceSkills(exp.skills)"
+              :key="`${exp.id}-${skill}`"
+              appearance="outlined"
+              variant="brand"
+              pill
+            >
+              {{ skill }}
+            </wa-badge>
+          </div>
+
+          <div v-if="getExperienceHighlight(exp.highlights)" class="cv-experience-highlights">
+            <span class="cv-experience-highlights-label">Highlight</span>
+            <span>{{ getExperienceHighlight(exp.highlights) }}</span>
+          </div>
         </wa-card>
       </div>
     </template>
@@ -34,11 +51,13 @@
 import { ref, computed, inject, onMounted } from 'vue';
 import type { AxiosInstance } from 'axios';
 import type { ExperienceResponse } from '../types';
+import { getExperienceHighlight, getExperienceSkills } from '../utils/experienceDisplay';
 import '@awesome.me/webawesome/dist/styles/webawesome.css';
 import '@awesome.me/webawesome/dist/components/card/card.js';
 import '@awesome.me/webawesome/dist/components/spinner/spinner.js';
 import '@awesome.me/webawesome/dist/components/callout/callout.js';
 import '@awesome.me/webawesome/dist/components/icon/icon.js';
+import '@awesome.me/webawesome/dist/components/badge/badge.js';
 import { allDefined } from '@awesome.me/webawesome/dist/utilities/defined.js';
 
 await allDefined();

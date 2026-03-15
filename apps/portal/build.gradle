@@ -69,9 +69,6 @@ dependencies {
     implementation 'org.flywaydb:flyway-core'
     runtimeOnly 'org.flywaydb:flyway-database-postgresql'
     
-    // H2 for testing
-    testRuntimeOnly 'com.h2database:h2'
-    
     // OpenAPI documentation
     implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.6.0'
     
@@ -100,9 +97,6 @@ dependencies {
     testImplementation 'org.testcontainers:jdbc:1.21.3'
     testImplementation 'org.testcontainers:database-commons:1.21.3'
     testImplementation 'org.testcontainers:postgresql:1.21.3'
-    testImplementation 'com.github.docker-java:docker-java-api:3.6.0'
-    testImplementation 'com.github.docker-java:docker-java-transport:3.6.0'
-    testImplementation 'com.github.docker-java:docker-java-transport-zerodep:3.6.0'
     testImplementation 'io.projectreactor:reactor-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     
@@ -112,6 +106,10 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('bootJar') {
+    archiveFileName = 'app.jar'
 }
 
 openApiGenerate {

@@ -17,6 +17,32 @@ It does not yet have:
 - i18n 
 - advanced shared features like notifications, dynamic registring of applications or forms to administrate everything
 
+**Disclaimer**: In this project content is obviously partially created with the help of AI. Code is even more obviously created with AI-assisted coding. I want to demonstrate an architectural pattern and a decent code structure, not necessarily my coding skills. However, I think it's still worth mentioning it here for transparency reasons. 
+
+# Quickstart 
+
+Currently pnpm and gradle are required (gradle has the wrapper at least but pnpm must be installed globally). Gradle is configured to also build the frontend as both is, so you simply need to build the gradle projects. 
+
+First run 
+
+```powershell
+.\gradlew apps:cv:bootJar; .\gradlew apps:portal:bootJar
+```
+
+to build the two projects. 
+
+Then run
+
+```powershell
+docker compose up --build
+```
+
+to up the docker containers and build the images. Three images will run: postgres, portal, cv.
+
+Visit http://localhost:8080/ once the containers started successfully. 
+
+If you want to run tests refer to the Testing section of this file. 
+
 ## Basics
 
 ### Self-Contained Systems (SCS)

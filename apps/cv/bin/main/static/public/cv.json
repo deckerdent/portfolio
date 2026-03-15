@@ -8,7 +8,7 @@
         "placeOfBirth": "Heidelberg, Germany",
         "nationality": "German",
         "imageUrl": "/image.jpeg",
-        "summary": ""
+        "summary": "Profound Software Professional with 8 years of experience in pro-code and low-code development, functional leadership and mentoring with a passion for problem solving and conceptual Work"
     },
     "experiences": [
         {
@@ -17,7 +17,15 @@
             "startDate": "2022-01-01",
             "endDate": null,
             "location": "Ludwigshafen, Germany",
-            "description": ""
+            "description": "Ideator and technical lead of a micro-frontend based platform for the development of internal web-based application for our core chemicals business. Responsible for the overall architecture, technology selection and implementation of key features.",
+            "skills": [
+                "Java",
+                "Spring Boot",
+                "TypeScript",
+                "Module Federation",
+                "PostgreSQL"
+            ],
+            "highlights": "Defined the platform architecture and delivered the first production-ready micro-frontend modules used by multiple internal teams."
         },
         {
             "title": "Team Specialist",
@@ -25,7 +33,14 @@
             "startDate": "2021-12-01",
             "endDate": "2021-12-31",
             "location": "Berlin, Germany",
-            "description": ""
+            "description": "Functional Lead for a team of 12 developers and project managers. We built applications for the BASF Global Business Services Unit, especially for internal HR, Finance and Procurement Services on a Java-based RAD environment.",
+            "skills": [
+                "Team Leadership",
+                "Requirements Engineering",
+                "Java",
+                "Code Review"
+            ],
+            "highlights": "Led planning and delivery alignment for a 12-person cross-functional team under a high-pressure transition phase. Managed to reduce load times of our web application by 90%."
         },
         {
             "title": "PO / Developer",
@@ -33,7 +48,16 @@
             "startDate": "2019-03-01",
             "endDate": "2021-11-30",
             "location": "Berlin, Germany",
-            "description": ""
+            "description": "Product Owner and Developer for various internal applications within BASF Business Services GmbH. Responsible for gathering requirements, defining user stories, and reviewing the code of the developers. ",
+            "skills": [
+                "Product Ownership",
+                "Backlog Management",
+                "User Stories",
+                "Java",
+                "Stakeholder Communication",
+                "Code Reviews"
+            ],
+            "highlights": "Led a dual student to embed Camunda Workflow Engine in a RAD system incl. authorization handling, form routing per task, task management and process management frontend and custom script task engine setup."
         },
         {
             "title": "Working Student - Web Development",
@@ -41,7 +65,19 @@
             "startDate": "2018-12-01",
             "endDate": "2019-02-28",
             "location": "Berlin, Germany",
-            "description": ""
+            "description": "Working Student in Web Development, contributing to various internal projects and gaining practical experience in software development.",
+            "skills": [
+                "Web Development",
+                "JavaScript",
+                "HTML/CSS",
+                "Agile Collaboration",
+                "Java",
+                "Groovy",
+                "Velocity",
+                "JQuery",
+                "Git"
+            ],
+            "highlights": "Delivered early feature increments that accelerated onboarding into enterprise software development practices."
         },
         {
             "title": "Teamlead",
@@ -49,7 +85,14 @@
             "startDate": "2017-02-01",
             "endDate": "2017-04-30",
             "location": "Berlin, Germany",
-            "description": ""
+            "description": "Teamlead in a warehouse build-up project to support the first month of the handover from the former service provider to BLG. Main targets were documenting workflows, taking inventory and onboarding staff. It was a project-based contract, as I started my studies immediately afterwards.",
+            "skills": [
+                "Team Leadership",
+                "Process Documentation",
+                "Inventory Management",
+                "Onboarding"
+            ],
+            "highlights": "Stabilized operations during provider handover by documenting critical workflows and coordinating rapid team ramp-up."
         },
         {
             "title": "Security Staff",
@@ -57,7 +100,9 @@
             "startDate": "2016-11-01",
             "endDate": "2017-01-31",
             "location": "Berlin, Germany",
-            "description": ""
+            "description": "Intermediate job while studying for my Bachelor Professional of Business. I worked as security staff mainly as a doorman, but also securing construction sites at nighttimes.",
+            "skills": null,
+            "highlights": null
         },
         {
             "title": "Truck Planner",
@@ -65,7 +110,14 @@
             "startDate": "2016-03-01",
             "endDate": "2017-09-30",
             "location": "Berlin, Germany",
-            "description": ""
+            "description": "Planned routes for trucks from paper recycling facilities to factories.",
+            "skills": [
+                "Route Planning",
+                "Logistics Coordination",
+                "Scheduling",
+                "Operational Optimization"
+            ],
+            "highlights": null
         },
         {
             "title": "Warehouse Planner",
@@ -73,7 +125,14 @@
             "startDate": "2014-01-01",
             "endDate": "2016-02-28",
             "location": "Walldorf, Germany",
-            "description": ""
+            "description": "Planned and managed operations in a distribution center, prepared and organized work for the warehouse staff. Planned and supervised loading activities.",
+            "skills": [
+                "Warehouse Operations",
+                "Workforce Planning",
+                "Loading Supervision",
+                "Process Coordination"
+            ],
+            "highlights": "Coordinated the loading and unloading of several heavy machinery transports with up to 10t per package."
         },
         {
             "title": "Apprentice - Warehouse Logistics",
@@ -81,7 +140,14 @@
             "startDate": "2011-09-01",
             "endDate": "2014-01-31",
             "location": "Walldorf, Germany",
-            "description": ""
+            "description": "Apprenticeship in a production warehouse. Learned everrything from receipt over commissioning to JIT production delivery.",
+            "skills": [
+                "Warehouse Logistics",
+                "JIT Delivery",
+                "Goods Receipt",
+                "Commissioning"
+            ],
+            "highlights": null
         },
         {
             "title": "Warehouse Worker",
@@ -89,7 +155,13 @@
             "startDate": "2011-01-01",
             "endDate": "2011-08-31",
             "location": "Walldorf, Germany",
-            "description": ""
+            "description": "Commissioned goods for JIT delivery in a production warehouse.",
+            "skills": [
+                "Commissioning",
+                "JIT Support",
+                "Warehouse Handling"
+            ],
+            "highlights": null
         },
         {
             "title": "Production Worker",
@@ -97,7 +169,15 @@
             "startDate": "2010-07-01",
             "endDate": "2010-10-31",
             "location": "Ludwigshafen, Germany",
-            "description": ""
+            "description": "Worked in a color pigments factory in 12h shifts. Loaded and unloaded stoves. Packaged pigments.",
+            "skills": [
+                "Production Operations",
+                "Shift Work",
+                "Material Handling",
+                "Packaging",
+                "Process Execution"
+            ],
+            "highlights": null
         }
     ],
     "education": [
@@ -105,7 +185,7 @@
             "title": "B.Sc. Business Informatics",
             "schoolName": "HTW Berlin",
             "startDate": "2017-10-01",
-            "endDate": null,
+            "endDate": "2020-03-31",
             "location": "Berlin, Germany",
             "description": ""
         },
@@ -128,8 +208,12 @@
     ],
     "skills": [
         {
+            "title": "AI-assisted Coding",
+            "level": 8
+        },
+        {
             "title": "TypeScript",
-            "level": 9
+            "level": 7
         },
         {
             "title": "Java",
@@ -137,18 +221,30 @@
         },
         {
             "title": "Vue.js",
-            "level": 9
+            "level": 6
         },
         {
             "title": "Spring Boot",
-            "level": 8
-        },
-        {
-            "title": "Docker",
             "level": 7
         },
         {
+            "title": "Docker",
+            "level": 5
+        },
+        {
             "title": "PostgreSQL",
+            "level": 7
+        },
+        {
+            "title": "Git",
+            "level": 7
+        },
+        {
+            "title": "Solution Architecture",
+            "level": 8
+        },
+        {
+            "title": "Software Architecture",
             "level": 7
         }
     ],
@@ -164,6 +260,24 @@
         },
         {
             "description": "Technical mentoring"
+        },
+        {
+            "description": "Business Processes definition"
+        },
+        {
+            "description": "Requirements Engineering"
+        },
+        {
+            "description": "Developer Experience"
+        },
+        {
+            "description": "Leadership"
+        },
+        {
+            "description": "Azure Cloud"
+        },
+        {
+            "description": "Azure DevOps"
         }
     ],
     "languages": [
@@ -178,79 +292,68 @@
     ],
     "hobbies": [
         {
-            "name": "Photography"
+            "name": "Gardening"
         },
         {
-            "name": "Hiking"
+            "name": "Reading"
         },
         {
-            "name": "Open Source"
+            "name": "Exploring Technologies"
+        },
+        {
+            "name": "Volunteering (Club)"
         }
     ],
     "references": [
         {
-            "firstName": "Anna",
-            "lastName": "Müller",
-            "description": "Marcel consistently delivered high-quality features and was a reliable team member throughout our joint project. His ability to translate complex requirements into clean, maintainable code is outstanding.",
+            "firstName": "Lüthje Wilhelm",
+            "lastName": "Brandt",
+            "description": "Lüthje was our department head at BASF Business Services GmbH before he was promoted the CFO of BASF Korea. We worked closely on HR, organizational and technical topics, such as standardization measures accross teams, position calibration and technology baselines.",
             "relation": "MANAGER"
         },
         {
-            "firstName": "Jonas",
-            "lastName": "Weber",
-            "description": "A highly motivated developer with a strong sense of ownership and excellent communication skills. Marcel always brought pragmatic solutions to the table and was a pleasure to work with.",
-            "relation": "COWORKER"
-        },
-        {
-            "firstName": "Laura",
-            "lastName": "Schneider",
-            "description": "Marcel's architectural decisions significantly improved our system's scalability and reduced technical debt. He is a natural mentor and elevates the entire team around him.",
+            "firstName": "Christian",
+            "lastName": "Klatt",
+            "description": "Christian was my operational Manager at BASF Business Services GmbH.",
             "relation": "MANAGER"
         },
         {
-            "firstName": "Tobias",
-            "lastName": "Hoffmann",
-            "description": "Working alongside Marcel was a great experience. He combines deep technical expertise with a collaborative mindset and always keeps the bigger picture in mind.",
-            "relation": "COWORKER"
+            "firstName": "Toon",
+            "lastName": "de Backer",
+            "description": "Toon was my disciplinary manager at BASF Business Services GmbH. He guided me through the HR processes, hiring and performance review meetings.",
+            "relation": "MANAGER"
         },
         {
-            "firstName": "Sandra",
-            "lastName": "Braun",
-            "description": "Marcel showed exceptional initiative and delivered results well beyond what was expected. I would highly recommend him for any senior engineering or technical leadership role.",
-            "relation": null
+            "firstName": "Samuel",
+            "lastName": "Machauer",
+            "description": "Samuel is a coworker working on the backend of our current project. We work closely together on code reviews, refinement and planning of work items.",
+            "relation": "COWORKER"
         }
     ],
     "certificates": [
         {
-            "title": "AWS Certified Developer – Associate",
-            "issuingOrganization": "Amazon Web Services",
-            "startDate": "2023-04-01",
+            "title": "AZ-305",
+            "issuingOrganization": "Microsoft",
+            "startDate": "2026-03-01",
             "endDate": "2026-04-01",
             "location": null,
-            "description": "Validates proficiency in developing, deploying, and debugging cloud-based applications using AWS services."
+            "description": ""
         },
         {
             "title": "Professional Scrum Master I (PSM I)",
             "issuingOrganization": "Scrum.org",
-            "startDate": "2021-09-15",
-            "endDate": null,
+            "startDate": "2021-10-01",
+            "endDate": "2021-12-28",
             "location": null,
-            "description": "Demonstrates a fundamental level of Scrum mastery, including Scrum theory, practices, and the Scrum framework."
+            "description": ""
         },
         {
-            "title": "Oracle Certified Professional: Java SE 11 Developer",
-            "issuingOrganization": "Oracle",
-            "startDate": "2022-06-01",
-            "endDate": "2025-06-01",
+            "title": "Professional Scrum Product Owner I (PSPO I)",
+            "issuingOrganization": "Scrum.org",
+            "startDate": "2021-10-01",
+            "endDate": "2021-12-28",
             "location": null,
-            "description": "Certifies advanced knowledge of Java SE 11 programming language features, APIs, and best practices."
-        },
-        {
-            "title": "Microsoft Certified: Azure Fundamentals (AZ-900)",
-            "issuingOrganization": "Microsoft",
-            "startDate": "2023-11-01",
-            "endDate": null,
-            "location": null,
-            "description": "Foundational certification covering core Azure services, cloud concepts, and Microsoft Azure pricing and support."
+            "description": ""
         }
     ]
 }

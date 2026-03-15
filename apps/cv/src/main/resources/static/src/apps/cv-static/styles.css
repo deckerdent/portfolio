@@ -47,6 +47,12 @@
     display: block;
     width: 100%;
     height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.cv-static-text {
+    height: 100%;
 }
 
 .cv-static-text h2 {

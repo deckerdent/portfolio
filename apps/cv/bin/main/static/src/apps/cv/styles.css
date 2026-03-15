@@ -387,6 +387,38 @@
     line-height: var(--wa-line-height-normal);
 }
 
+.cv-experience-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--wa-space-2xs);
+    margin-top: var(--wa-space-xs);
+}
+
+.cv-experience-skills wa-badge {
+    padding: var(--wa-space-2xs) var(--wa-space-xs);
+}
+
+.cv-experience-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wa-space-3xs);
+    margin-top: var(--wa-space-s);
+    padding: var(--wa-space-xs) var(--wa-space-s);
+    border-left: 3px solid var(--wa-color-warning-border-loud);
+    background: color-mix(in oklab, var(--wa-color-warning-fill-quiet) 35%, transparent);
+    border-radius: var(--wa-border-radius-s);
+    font-size: var(--wa-font-size-s);
+    color: var(--wa-color-text-normal);
+}
+
+.cv-experience-highlights-label {
+    font-size: var(--wa-font-size-xs);
+    font-weight: var(--wa-font-weight-semibold);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--wa-color-warning-on-quiet);
+}
+
 /* Skills view */
 .cv-skills-layout {
     display: flex;

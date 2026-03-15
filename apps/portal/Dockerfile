@@ -1,30 +1,9 @@
-# syntax=docker/dockerfile:1.7
-
-FROM node:20-bookworm AS frontend-builder
-WORKDIR /workspace
-
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml nx.json tsconfig.base.json tsconfig.json ./
-COPY libs ./libs
-COPY apps ./apps
-
-RUN corepack enable
-RUN pnpm install --frozen-lockfile
-RUN pnpm --filter portal build
-
-FROM gradle:8.9.0-jdk17 AS backend-builder
-WORKDIR /workspace
-
-COPY . .
-COPY --from=frontend-builder /workspace/apps/portal/src/main/resources/static/dist ./apps/portal/src/main/resources/static/dist
-
-RUN chmod +x ./gradlew
-RUN ./gradlew :apps:portal:bootJar -PskipFrontend --no-daemon
-
-FROM eclipse-temurin:17-jre-jammy
+FROM gcr.io/distroless/java17-debian12:nonroot
 WORKDIR /app
 
-COPY --from=backend-builder /workspace/apps/portal/build/libs/*.jar /app/app.jar
+# CI should pass an exact jar path
+ARG JAR_FILE=apps/portal/build/libs/app.jar
+COPY ${JAR_FILE} /app/app.jar
 
 EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java","-jar","/app/app.jar"]
