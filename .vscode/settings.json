@@ -4,7 +4,12 @@
         "mv": true,
         "cp": true,
         "robocopy": true,
-        "Copy-Item": true
+        "Copy-Item": true,
+        "pnpm": true,
+        ".\\gradlew.bat": true,
+        "docker ps": true,
+        ".\\gradlew": true,
+        "ForEach-Object": true
     },
     "java.configuration.updateBuildConfiguration": "interactive",
     "json.schemaDownload.enable": false

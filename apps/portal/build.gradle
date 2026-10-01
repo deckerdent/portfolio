@@ -64,9 +64,10 @@ dependencies {
     
     // Database
     runtimeOnly 'org.postgresql:postgresql:42.7.3'
-    
-    // H2 for testing
-    testRuntimeOnly 'com.h2database:h2'
+
+    // Flyway migrations
+    implementation 'org.flywaydb:flyway-core'
+    runtimeOnly 'org.flywaydb:flyway-database-postgresql'
     
     // OpenAPI documentation
     implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.6.0'
@@ -91,9 +92,11 @@ dependencies {
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
-    testImplementation 'org.testcontainers:testcontainers:1.20.1'
-    testImplementation 'org.testcontainers:junit-jupiter:1.20.1'
-    testImplementation 'org.testcontainers:postgresql:1.20.1'
+    testImplementation 'org.testcontainers:testcontainers:1.21.3'
+    testImplementation 'org.testcontainers:junit-jupiter:1.21.3'
+    testImplementation 'org.testcontainers:jdbc:1.21.3'
+    testImplementation 'org.testcontainers:database-commons:1.21.3'
+    testImplementation 'org.testcontainers:postgresql:1.21.3'
     testImplementation 'io.projectreactor:reactor-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     
@@ -103,6 +106,10 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('bootJar') {
+    archiveFileName = 'app.jar'
 }
 
 openApiGenerate {
@@ -154,6 +161,7 @@ task buildFrontend(type: Exec) {
     
     // Add inputs/outputs for up-to-date checking
     inputs.dir(file("${frontendDir}/src"))
+    inputs.dir(file("${frontendDir}/public"))
     inputs.file("${frontendDir}/package.json")
     inputs.file("${frontendDir}/vite.config.mts")
     outputs.dir(frontendDistDir)
@@ -170,24 +178,14 @@ clean.dependsOn cleanFrontend
 
 processResources {
     dependsOn buildFrontend
-    
-    // Set duplicate handling strategy
+
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    
-    // Copy dist contents to static/ in the resources output
+
+    // Exclude the entire frontend source tree — only dist is bundled
+    exclude 'static/**'
+
+    // Copy only the built dist contents into static/ in the JAR
     from(frontendDistDir) {
         into 'static'
     }
-    
-    // Exclude the source frontend files from the JAR
-    exclude 'static/src/**'
-    exclude 'static/dist/**'
-    exclude 'static/host/**'
-    exclude 'static/portal/**'
-    exclude 'static/node_modules/**'
-    exclude 'static/package.json'
-    exclude 'static/tsconfig*.json'
-    exclude 'static/vite.config.mts'
-    exclude 'static/index.html'
-    exclude 'static/.*'
 }

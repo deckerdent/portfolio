@@ -1,0 +1,51 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: portfolio-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init-multiple-dbs.sql:/docker-entrypoint-initdb.d/init-multiple-dbs.sql:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  cv:
+    build:
+      context: .
+      dockerfile: apps/cv/Dockerfile
+    container_name: portfolio-cv
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/cv
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+    ports:
+      - '8081:8081'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  portal:
+    build:
+      context: .
+      dockerfile: apps/portal/Dockerfile
+    container_name: portfolio-portal
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/portal
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+    ports:
+      - '8080:8080'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

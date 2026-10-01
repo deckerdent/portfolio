@@ -1,0 +1,8 @@
+{
+    "title": "portfolio",
+    "basePath": "/",
+    "appsUrl": "/apps_setup.json",
+    "sourceUrls": [
+        "/sources.json"
+    ]
+}

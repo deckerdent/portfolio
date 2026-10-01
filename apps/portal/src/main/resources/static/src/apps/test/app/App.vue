@@ -1,3 +1,8 @@
+<script lang="ts">
+import { loadRemote } from '@module-federation/enhanced/runtime';
+loadRemote('portal/PortalLink');
+</script>
+
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 </script>
@@ -7,6 +12,7 @@ import { RouterLink, RouterView } from 'vue-router';
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
+      <portal-link href="/Default">Default App</portal-link>
     </nav>
   </header>
     <RouterView />

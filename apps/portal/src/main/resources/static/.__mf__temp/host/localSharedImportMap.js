@@ -19,7 +19,7 @@
       
           "vue": {
             name: "vue",
-            version: "3.5.27",
+            version: "3.5.29",
             scope: ["default"],
             loaded: false,
             from: "host",

@@ -39,6 +39,7 @@ target/
 
 # IDE
 .idea/
+.vscode/launch.json
 *.iml
 *.ipr
 *.iws

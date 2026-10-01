@@ -1,0 +1,29 @@
+[
+  {
+    "displayName": "Home",
+    "entry": "",
+    "scope": "cv",
+    "module": "CvStaticApp",
+    "description": "",
+    "slot": "app",
+    "activationUrl": "/"
+  },
+  {
+    "displayName": "CV App",
+    "entry": "http://localhost:8081",
+    "scope": "cv",
+    "module": "CvApp",
+    "description": "",
+    "slot": "app",
+    "activationUrl": "/cv"
+  },
+  {
+    "displayName": "Header",
+    "entry": "",
+    "scope": "portal",
+    "module": "PortalHeader",
+    "description": "",
+    "slot": "header",
+    "activationUrl": "/"
+  }
+]
